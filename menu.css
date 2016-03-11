@@ -1,0 +1,57 @@
+body {
+	background-color: black;
+	font-style: italic;
+}
+.menu {
+	background-image: url("http://clipartfreefor.com/cliparts/border-clip-art/cliparti1_border-clip-art_05.jpg");
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	text-align: center;
+	width: 750px;
+	height: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.menu td {
+	vertical-align: bottom;
+	padding-bottom: 60px;
+}
+dt {
+	font-weight: bold;
+	font-size: 20px;
+}
+dd {
+	margin: 0;
+}
+#logo {
+	padding-top: 10%;
+	width: 40%;
+}
+h1 {
+	font-size: 450%;
+	text-decoration: underline;
+}
+#container {
+	border: 5px solid grey;
+	width: 250px;
+	height: 250px;
+    position: fixed;
+	top: 20px;
+	left: 20px;
+	background-color: #ffffff;
+}
+.item img {
+	display: none;
+	visibility: hidden;
+	
+}
+.item:hover img {
+	display: block;
+	visibility: visible;
+	width: 250px;
+	height: 250px;
+	position: fixed;
+	top: 25px;
+	left: 25px;
+}
