@@ -1,0 +1,123 @@
+body {
+	font-family: Arial; 
+	background-color: #007700;
+}
+img[title="tennis racquet"] {
+	margin: 0px 40px 0px;
+	border-radius: 10px;
+}
+a:link {
+	color: #ffbb00;
+}
+a:visited {
+	color: #ff3300;
+}
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #005500;
+}
+.navlinks {
+    float: left;
+}
+.navlinks a {
+    display: inline-block;
+	font-size: 150%;
+    color: #ffbb00;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+.navlinks a:hover {
+	color: #ffff00;
+    background-color: #008800;
+}
+.active {
+    float: left;
+}
+.active a {
+	display: inline-block;
+	font-size: 150%;
+    color: #ffff00;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+	background-color: #00aa00;
+}
+h1 {
+	font-size: 400%;
+	font-style: italic;
+	color: #ffff00;
+}
+h2 {
+  color: #ffee00;
+}
+h4 {
+	color: #ffdd00;
+}
+p {
+	color: #ffff00;
+}
+.playerInfo td {
+	background-color: #006000;
+	border: 1px solid #005000;
+}
+.playerInfo dt {
+	margin-left: 10px;
+	color: #ffdd00;
+	font-weight: bold;
+}
+.playerInfo dd {
+	color: #ffaa00;
+}
+.contents {	
+	border: 2px solid #ff5500;
+}
+.contents ol {
+	text-align: left;
+	padding-right: 15px;
+	color: #ffff00;
+}
+.preview {
+	margin-left: 15px;
+	color: #ffcc00;
+}
+.info td {
+	background-color: #006000;
+	padding: 0px 15px 0px;
+	border: 1px solid #005000;
+	color: #ffaa00;
+}
+.info ul {
+	list-style-type: square;
+	color: #ff7700;
+}
+.info dt {
+	text-align: center;
+	color: #ffcc00;
+	font-weight: bold;
+}
+.info dd {
+	color: #ffaa00;
+}
+th {
+	 font-size: 125%;
+	 color: #ffee00;
+	 text-align: left;
+}
+#blueLine {
+	margin-left: 0;
+	width: 80%;
+	height: 6px;
+	color: #0077ff;
+	background-color: #0077ff;
+}
+#redLine {
+	margin-right: 0;
+	width: 80%;
+	height: 6px;
+	color: #ff0000;
+	background-color: #ff0000;
+}
