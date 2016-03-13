@@ -1,0 +1,9 @@
+h1,h3 {
+  text-decoration: underline;
+}
+body {
+  background-color: #999999;
+}
+th,td {
+  text-align: center;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="Image.css" />
+	<title>Arithmetic Image Manipulation</title>
+</head>
+
+<body>
+	<h1> Arithmetic Image Manipulation </h1>
+
+	<h3>Manipulated Image:</h3>
+	<table align="left">
+	  <tr>
+		<th>Before</th>
+		<th>After</th>
+	  </tr>
+	  <tr>
+		<td>
+		  <img src="http://i.imgur.com/d9n3GMd.jpg" title="source: imgur.com" width=75%/>
+		</td>
+		<td>
+		  <img src="http://i.imgur.com/M1jeD8B.png" title="source: imgur.com" width=75% />
+		</td>
+	  </tr>
+	</table>
+
+	<h3>Algorithm:</h3>
+	<p>
+	  An image is modified in this example with two effects: a blur effect and a windowframe border overlay. The blur effect is implemented using an algorithm that is called 60% of the time. This algorithm takes the current pixel along with a distance and randomly picks another pixel within that distance radius and is replaced by it. A check whether it is still in the image bounds is also implemented to ensure robustness. The window frame is then place on top of the blurred imaged but several cases with determine if the pixel should be colored in brown or left as the original pixel.
+	</p>
+
+	<h3>Code:</h3>
+	<pre>
+	var input = new SimpleImage("QE_Park.jpg");
+	var w = input.getWidth();
+	var h = input.getHeight();
+	var output = new SimpleImage(w,h);
+
+	function windowFrame(pixel) {
+		var t = 30;
+		if(pixel.getX() < t ||
+		pixel.getX() > w-t ||
+		(w/3-t/3) < pixel.getX() && pixel.getX() < (w/3+t/3) ||
+		(2*w/3-t/3) < pixel.getX() && pixel.getX() < (2*w/3+t/3)) {
+			pixel.setRed(150);
+			pixel.setGreen(100);
+			pixel.setBlue(30);
+		}
+		if(pixel.getY() < t ||
+		pixel.getY() > h-t ||
+		(h/2-t/3) < pixel.getY() && pixel.getY() < (h/2+t/3)) {
+			pixel.setRed(150);
+			pixel.setGreen(100);
+			pixel.setBlue(30);
+		}
+		return pixel;
+	}
+
+	function getPixelNearby(image, x, y, dist) {
+		var dx = Math.random()*dist - dist/2;
+		var dy = Math.random()*dist - dist/2;
+		var nx = inBound(x+dx, w);
+		var ny = inBound(y+dy, h);
+		return image.getPixel(nx,ny);
+	}
+
+	function inBound (coordinate, size) {
+		if (coordinate < 0) {
+			return 0;
+		}
+		if (coordinate >= size) {
+			return size - 1;
+		}
+		return coordinate;
+	}
+
+	for(var pixel of input.values()) {
+		var x = pixel.getX();
+		var y = pixel.getY();
+		if (Math.random() > 0.4) {
+			var newPixel = getPixelNearby(input, x, y, 30);
+			output.setPixel(x, y, newPixel);
+		}
+		else {
+			output.setPixel(x, y, pixel);
+		}
+		output.setPixel(x,y,windowFrame(output.getPixel(x,y)));
+	}
+	print(output);
+	</pre>
+</body>
+</html>

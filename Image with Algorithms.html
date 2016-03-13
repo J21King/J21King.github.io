@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="Image.css" />
+	<title>Image with Algorithms</title>
+</head>
+
+<body>
+	<h1> Creating an Image with Algorithms </h1>
+
+	<h3>Created Image:</h3>
+	<img src="http://i.imgur.com/cgFKoNS.png" title="source: imgur.com" />
+
+	<h3>Algorithm:</h3>
+	<p>
+	  The 256x256 image consists of three main algorithms: one to create the planets, one to create the stars, and one to create the blue shading. A function to draw a circle base on it's center coordinate was utilized to create the circle as well as to create
+	  the gradient color schemes. The stars were create using the random function, was was also used to vary amounts of blue creating some white and some yellow stars. Lastly the blue gradient was created by using the difference x and y coordinates as the
+	  blue value. With the top right corner being (256,0) and the bottom left corner being (0,256) it is easy to see that those will be the bluest regions and the center diagonal will gradually turn to black.
+	</p>
+
+	<h3>Code:</h3>
+	<pre>
+	var output = new SimpleImage(256,256);
+
+	function circle(pixel,x,y) {
+		var dx = pixel.getX() - x;
+		var dy = pixel.getY() - y;
+		return Math.sqrt(dx*dx + dy*dy);
+	}
+
+	for(var pixel of output.values()) {
+		pixel.setBlue(Math.max(0.5*(pixel.getY()-0.5*pixel.getX()),0.5*pixel.getX()-pixel.getY()));
+		if(circle(pixel,60,80) < 40) {
+			pixel.setRed(255-5*circle(pixel,70,90));
+			pixel.setGreen(150-5*circle(pixel,70,85));
+		}
+		else if(circle(pixel,200,170) < 70) {
+			pixel.setGreen(255-3*circle(pixel,180,150));
+			pixel.setBlue(230-3*circle(pixel,180,150));
+		}
+		else if(Math.random() > 0.997) {
+			pixel.setRed(255);
+			pixel.setGreen(255);
+			pixel.setBlue(255*Math.random());
+		}
+	}
+	print(output);
+	</pre>
+	</body>
+</html>
